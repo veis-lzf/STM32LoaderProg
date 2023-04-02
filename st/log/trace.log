@@ -1,0 +1,10 @@
+18:49:50:182       -------------------------------------------------------------------
+18:49:50:183                        STM32CubeProgrammer v2.11.0                  
+18:49:50:183       -------------------------------------------------------------------
+
+18:49:50:183 
+
+18:49:50:183 Log output file:   ../log/trace.log
+18:49:50:183 Command line:  -c port=swd mode=normal -log "../log/trace.log" -e all -d "E:\Temp\F4Q_Loader_20221219.bin" 0x08000000 -v -ob dual_bank=0 nboot_sel=0 iwdg_stop=0
+18:49:50:183 
+18:49:50:188 Error: No debug probe detected.
