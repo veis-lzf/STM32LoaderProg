@@ -296,7 +296,7 @@ void CSTM32PRDlg::KMeansSegment()
 	}
 	if ((-1 != retStr.Find(_T("File download complete"))) 
 		&& (-1 != retStr.Find(_T("Download verified successfully")))
-		&& (-1 != retStr.Find(_T("Option Bytes successfully programmed")) 
+		|| (-1 != retStr.Find(_T("Option Bytes successfully programmed")) 
 			|| -1 != retStr.Find(_T("Option Bytes are unchanged, Data won't be downloaded"))))
 	{
 		g_color = RGB(36, 177, 16);
@@ -305,7 +305,7 @@ void CSTM32PRDlg::KMeansSegment()
 		PostMsg(m_present, RGB(0, 0, 250), TRUE);
 		g_countsuccess++;
 		PostMsg(_T("########下载程序完成，PASS！！！########"), RGB(36, 177, 16), TRUE);
-		TRACE1(_T("下载成功次数：%d\r\n"), g_countsuccess);
+//		TRACE1(_T("下载成功次数：%d\r\n"), g_countsuccess);
 	}
 	else
 	{
@@ -313,7 +313,7 @@ void CSTM32PRDlg::KMeansSegment()
 		m_status.SetWindowText(_T("FAIL"));
 		g_countfailed++;
 		PostMsg(_T("########下载程序失败########"), RGB(255, 0, 0), TRUE);
-		TRACE1(_T("下载失败次数：%d\r\n"), g_countfailed);
+//		TRACE1(_T("下载失败次数：%d\r\n"), g_countfailed);
 	}
 	m_progress.SetPos(0);
 	UpdateData(FALSE);
@@ -378,7 +378,7 @@ void CSTM32PRDlg::OnBnClickedOk3()
 		_T("binary files (*.bin)|*.bin|All Files (*.*)|*.*||");
 	CFileDialog fileDlg(TRUE, NULL, NULL, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT, szFilter);
 
-	INT ret = fileDlg.DoModal();
+	INT_PTR ret = fileDlg.DoModal();
 	if (ret == IDCANCEL)
 		return;
 
